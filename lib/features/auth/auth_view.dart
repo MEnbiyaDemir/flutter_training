@@ -75,7 +75,7 @@ return TextButton(onPressed: (){setState(() {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: _title()),
+    return Scaffold(appBar: AppBar(title: _title(),automaticallyImplyLeading: false),
     body: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,

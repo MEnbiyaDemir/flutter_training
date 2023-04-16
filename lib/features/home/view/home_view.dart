@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:recipe_app/core/auth/auth.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final User? user = Auth().currentUser;
 
   Future<void> signOut() async{
@@ -20,7 +25,11 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _signoutButton(){
-    return ElevatedButton(onPressed: signOut,
+    return ElevatedButton(onPressed: () {
+      signOut();
+      
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+    },
      child: const Text("sign out"));
      
   }
@@ -28,7 +37,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: _title()),
+      appBar: AppBar(title: _title(),automaticallyImplyLeading: false,),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
