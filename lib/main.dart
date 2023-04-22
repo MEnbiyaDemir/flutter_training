@@ -3,6 +3,7 @@ import 'package:recipe_app/features/auth/auth_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'features/home/view/home_view.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
